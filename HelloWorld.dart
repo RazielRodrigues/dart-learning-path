@@ -5,47 +5,48 @@ main() {
   print("1 - SOMAR");
   print("2 - SUBTRAIR");
   print("3 - MULTIPICAR");
-  print("4 - DIVIR");
-  print("5 - PAR OU IMPAR\n");
+  print("4 - DIVIDIR\n");
 
-  var op = stdin.readLineSync();
-  var x = stdin.readLineSync();
-  var y = stdin.readLineSync();
+  stdout.write('DIGITE A OPERACAO = ');
+  String op = stdin.readLineSync().toString();
 
-  int resultado = 0;
+  stdout.write('DIGITE O PRIMEIRO NUMERO = ');
+  double x = double.parse(stdin.readLineSync().toString());
 
-  if (op == 1) {
+  stdout.write('DIGITE O SEGUNDO NUMERO = ');
+  double y = double.parse(stdin.readLineSync().toString());
+
+  double resultado = 0;
+
+  if (op == '1') {
     resultado = somar(x, y);
-  } else if (op == 2) {
+  } else if (op == '2') {
     resultado = subtrair(x, y);
-  } else if (op == 3) {
+  } else if (op == '3') {
     resultado = multiplicar(x, y);
-  } else if (op == 4) {
+  } else if (op == '4') {
     resultado = dividir(x, y);
-  } else if (op == 5) {
-    resultado = parouimpar(x, y);
   }
 
-  print("\nRESULTADO = $resultado");
-
+  print("\nRESULTADO = $resultado\n");
 }
 
-int somar(x, y) {
+double somar(x, y) {
   return x + y;
 }
 
-int subtrair(x, y) {
+double subtrair(x, y) {
   return x - y;
 }
 
-int multiplicar(x, y) {
+double multiplicar(x, y) {
   return x * y;
 }
 
-int dividir(x, y) {
+double dividir(x, y) {
+  if (y == 0) {
+    print("\nNão é possivel dividir por zero!\n");
+    return main();
+  }
   return x / y;
-}
-
-int parouimpar(x, y) {
-  return (x % y) == 0 ? 1 : 0;
 }
